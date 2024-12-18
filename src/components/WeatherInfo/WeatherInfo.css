@@ -1,0 +1,20 @@
+.content-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+
+    border: 2px solid red;
+}
+
+.icon-weather {
+    width: 100px;
+    height: 100px;
+}
+
+.infos-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
