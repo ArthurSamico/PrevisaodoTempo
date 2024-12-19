@@ -50,7 +50,6 @@ function App() {
     setCorFundo(coresPorClima[clima] || "#87CEEB");
 
     inputRef.current.value = "";
-    console.log(apiResponse)
   }
 
   useEffect(() => {

@@ -1,3 +1,9 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .content-wrap {
     display: flex;
     flex-direction: column;
@@ -5,7 +11,14 @@
     align-items: center;
     text-transform: capitalize;
 
-    border: 2px solid red;
+    margin: 50px auto;
+    padding: 20px 20px 30px;
+
+    background-color: #1d1d1d;
+    color: white;
+    border-radius: 5px;
+
+    width: 97.5%;
 }
 
 .icon-weather {
@@ -17,4 +30,13 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+
+    width: 70vw;
+}
+
+.class-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

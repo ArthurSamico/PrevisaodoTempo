@@ -9,19 +9,19 @@ function WeatherInfo({ weather }) {
             <p>{weather.weather[0].description}</p>
 
             <div className='infos-wrap'>
-                <div className='main-temp'>
+                <div className='class-info'>
                     <h3>Temperatura atual</h3>
                     <p>{Math.round(weather.main.temp)}°C</p>
                 </div>
-                <div className='temp-feels'>
+                <div className='class-info'>
                     <h3>Sensação térmica</h3>
                     <p>{Math.round(weather.main.feels_like)}°C</p>
                 </div>
-                <div className='wind-speed'>
+                <div className='class-info'>
                     <h3>Velocidade do Vento</h3>
                     <p>{weather.wind.speed}</p>
                 </div>
-                <div className='main-pressure'>
+                <div className='class-info'>
                     <h3>Pressão</h3>
                     <p>{weather.main.pressure}</p>
                 </div>

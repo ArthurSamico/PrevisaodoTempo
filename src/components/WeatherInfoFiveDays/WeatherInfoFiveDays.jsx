@@ -13,7 +13,8 @@ function WeatherInfoFiveDays({ weatherFiveDays }) {
         }
     }
 
-    const nextFiveDays = Object.values(dailyForecast).slice(1, 6)
+    console.log(dailyForecast)
+    const nextFiveDays = Object.values(dailyForecast)
 
     function convertDate(date) {
         const newDate = new Date(date.dt * 1000).toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit' })
@@ -21,6 +22,7 @@ function WeatherInfoFiveDays({ weatherFiveDays }) {
     }
 
     return <>
+            <h2>Previsão do tempo dos próximos </h2>
         {
             nextFiveDays.map(forecast => (
                 <div key={forecast.dt}>
