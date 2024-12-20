@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Toaster, toast } from 'sonner';
 
+const key = import.meta.env.VITE_API_KEY
+const baseUrl = import.meta.env.VITE_URL_BASE
+
 // componentes
 import "./App.css";
 import WeatherInfo from "./components/WeatherInfo/WeatherInfo.jsx";
@@ -34,10 +37,9 @@ function App() {
 
   async function searchCity() {
     const city = inputRef.current.value;
-    const key = "cf22507f5cd950fa85b72157cb3df718";
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&lang=pt_br&units=metric`;
-    const urlFiveDays = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}&lang=pt_br&units=metric`;
+    const url = `${baseUrl}weather?q=${city}&appid=${key}&lang=pt_br&units=metric`;
+    const urlFiveDays = `${baseUrl}forecast?q=${city}&appid=${key}&lang=pt_br&units=metric`;
 
     try {
       const apiResponse = await axios.get(url);
