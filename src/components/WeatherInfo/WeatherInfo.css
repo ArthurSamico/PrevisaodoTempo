@@ -1,4 +1,4 @@
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,14 +11,18 @@ body{
     align-items: center;
     text-transform: capitalize;
 
-    margin: 50px auto;
+    margin: 30px auto;
     padding: 20px 20px 30px;
 
+    box-shadow: 2px 2px 5px black;
     background-color: #1d1d1d;
     color: white;
     border-radius: 5px;
 
-    width: 97.5%;
+    width: 97%;
+
+    animation: fadeIn .8s linear;
+
 }
 
 .icon-weather {
@@ -34,9 +38,19 @@ body{
     width: 70vw;
 }
 
-.class-info{
+.class-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

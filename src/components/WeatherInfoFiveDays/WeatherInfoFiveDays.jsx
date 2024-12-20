@@ -14,7 +14,7 @@ function WeatherInfoFiveDays({ weatherFiveDays }) {
     }
 
     console.log(dailyForecast)
-    const nextFiveDays = Object.values(dailyForecast)
+    const nextFiveDays = Object.values(dailyForecast).slice(1, 6)
 
     function convertDate(date) {
         const newDate = new Date(date.dt * 1000).toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit' })
@@ -22,17 +22,19 @@ function WeatherInfoFiveDays({ weatherFiveDays }) {
     }
 
     return <>
-            <h2>Previsão do tempo dos próximos </h2>
-        {
-            nextFiveDays.map(forecast => (
-                <div key={forecast.dt}>
-                    <p>{convertDate(forecast)}</p>
-                    <img src={`http://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`} alt="" />
-                    <p>{forecast.weather[0].description}</p>
-                    <p>{Math.round(forecast.main.temp_min)}°C / {Math.round(forecast.main.temp_max)}°C</p>
-                </div>
-            ))
-        }
+        <h2 className='main-title'>Previsão do tempo dos próximos cinco dias</h2>
+        <div className='five-days-wrap'>
+            {
+                nextFiveDays.map(forecast => (
+                    <div key={forecast.dt} className='content-five-days'>
+                        <p>{convertDate(forecast)}</p>
+                        <img className='content-icon' src={`http://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`} alt="" />
+                        <p>{forecast.weather[0].description}</p>
+                        <p>Temperatura média {Math.round(forecast.main.temp_max)}°C</p>
+                    </div>
+                ))
+            }
+        </div>
     </>
 }
 export default WeatherInfoFiveDays

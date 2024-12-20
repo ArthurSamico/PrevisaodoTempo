@@ -1,0 +1,28 @@
+.main-title {
+    text-align: center;
+}
+
+.content-five-days {
+    display: flex;
+    flex-direction: column;
+    background-color: #1d1d1d;
+    align-items: center;
+    width: 20%;
+    color: white;
+    text-transform: capitalize;
+    box-shadow: 5px 2px 5px black;
+
+    border-radius: 5px;
+
+    margin-bottom: 30px;
+}
+
+.five-days-wrap {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.content-icon {
+    height: 50px;
+    width: 50px;
+}

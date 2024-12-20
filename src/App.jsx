@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import { Toaster, toast } from 'sonner';
 
 // componentes
 import "./App.css";
@@ -38,18 +39,27 @@ function App() {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&lang=pt_br&units=metric`;
     const urlFiveDays = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}&lang=pt_br&units=metric`;
 
-    const apiResponse = await axios.get(url);
-    const apiResponseFiveDays = await axios.get(urlFiveDays);
+    try {
+      const apiResponse = await axios.get(url);
+      const apiResponseFiveDays = await axios.get(urlFiveDays);
 
-    setWeather(apiResponse.data);
-    setWeatherFiveDays(apiResponseFiveDays.data);
+      setWeather(apiResponse.data);
+      setWeatherFiveDays(apiResponseFiveDays.data);
 
-    const clima = apiResponse?.data?.weather[0]?.main.toUpperCase();
+      const clima = apiResponse?.data?.weather[0]?.main.toUpperCase();
 
-    setClimaAtual(clima);
-    setCorFundo(coresPorClima[clima] || "#87CEEB");
+      setClimaAtual(clima);
+      setCorFundo(coresPorClima[clima] || "#87CEEB");
 
-    inputRef.current.value = "";
+      inputRef.current.value = "";
+    } catch (error) {
+      console.log(error.response.data.cod)
+      if (error.response.data.cod == '404') {
+        toast.error('Cidade não encontrada')
+      }
+    }
+
+    console.log(weather)
   }
 
   useEffect(() => {
@@ -71,6 +81,8 @@ function App() {
 
       {weather && <WeatherInfo weather={weather} />}
       {weatherFiveDays && <WeatherInfoFiveDays weatherFiveDays={weatherFiveDays} />}
+
+      <Toaster richColors />
     </>
   );
 }
